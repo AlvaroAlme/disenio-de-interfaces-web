@@ -1,0 +1,12 @@
+div p{
+    color: orange;
+}
+
+div p ::first-letter{
+    font: size 200%;
+    
+}
+
+a:navigation{
+    color: rgb(58, 256, 13);
+}

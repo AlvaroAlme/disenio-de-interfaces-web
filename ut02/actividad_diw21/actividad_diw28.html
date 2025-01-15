@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Actividad 2.8</title>
+  <style>
+    nav.menu ul {
+      display: flex; 
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      justify-content: space-around; 
+      background-color: blue; 
+    }
+
+    
+    nav.menu ul li a {
+      display: block;
+      padding: 1rem 2rem; 
+      text-decoration: none; 
+      color: white; 
+      background-color: blue; 
+      transition: background-color 0.3s ease, color 0.3s ease; 
+    }
+
+    
+    nav.menu ul li a:hover {
+      background-color: #ddd; 
+      color: blue; 
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <nav class="menu">
+    <ul>
+      <li><a href="#">Principal</a></li>
+      <li><a href="#">Casilla1</a></li>
+      <li><a href="#">Casilla2</a></li>
+      <li><a href="#">Casilla3</a></li>
+      <li><a href="#">Casilla4</a></li>
+    </ul>
+  </nav>
+</body>
+</html>

@@ -1,0 +1,102 @@
+body{
+    font-family: Arial, sans-serif;
+    background-color:cornsilk;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header{
+    color: rgba(73, 73, 73, 0.5);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-style: italic;
+    
+}
+
+main{
+    padding: 20px;
+    
+}
+
+h2{
+    padding: 25px;
+    margin: 25px;
+}
+
+p{
+    padding: 25px;
+}
+
+
+footer{
+
+    background-image: linear-gradient(cornsilk, dimgray);
+    text-align: center;
+    padding: 10px;
+}
+
+#introduccion{
+    font-family: monospace;
+    outline: 25;
+    border-style: dashed;
+    border-color: blueviolet;
+    border-width: 5px;
+    border-radius: 25px;
+}
+
+#imagen-fluid{
+    
+    border: 50px;
+    border-color: darkseagreen;
+    border-radius: 50px;
+}
+
+@media screen and (max-width: 600px){
+
+    header{
+        background-color: aliceblue;
+    }
+
+    header h2{
+        font-size: 23px;
+    }
+
+    section h3{
+       
+        color: blueviolet;
+    }
+    
+}
+
+@media screen and (min-width: 601px) and (max-width:1024px){
+
+    header{
+        background-color: burlywood;
+    }
+
+    header p{
+        color: brown;
+    }
+
+    section h3{
+        
+        color: cornflowerblue;
+    }
+
+}
+
+@media screen and (min-width: 1025px){
+    header{
+        background-color: aquamarine;
+    }
+
+    header h2{
+        font-size: auto;
+    }
+
+    section h3{
+        
+        color: darkcyan;
+    }
+    
+}
+    
