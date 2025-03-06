@@ -1,0 +1,52 @@
+<!--Crea el fichero HTML audio.html y haz que contenga el audio1.mp3 insertado por HTML5 y cuatro botones: dos para manejar audio1.mp3 y otros dos para manejar audio2.mp3.-->
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DIW 5.5</title>
+    <style>
+      body {
+        max-width: 100%;
+        width: auto;
+        scale: 5;
+        font-family: Arial, sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        margin: 0;
+      }
+
+      div {
+        margin: 20px 0;
+      }
+
+      button {
+        font-size:25px; 
+        padding: 15px 30px; 
+        border: none;
+        border-radius: 10px; 
+        cursor: pointer;
+        margin: 10px; 
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);    
+      }
+    </style>
+  </head>
+  <body>
+
+    <audio id="audio1" src="audio1.mp3" controls></audio>
+    <div>
+      <button id="playA1">Reproducir A1</button>
+      <button id="stopA1">Parar A1</button>
+    </div>
+
+    <div>
+      <button id="playA2">Reproducir A2</button>
+      <button id="stopA2">Parar A2</button>
+    </div>
+
+    <script src="audio.js"></script>
+  </body>
+</html>
