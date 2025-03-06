@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animaciones en HTML</title>
+    <style>
+        body {
+            background-color: #1a202c;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            max-width: 500px;
+            position: relative;
+        }
+        .title {
+            font-size: 2rem;
+            font-weight: bold;
+            animation: bounce 2s infinite;
+            transition: opacity 1s;
+        }
+        .image {
+            width: 300px;
+            height: 200px;
+            border-radius: 12px;
+            opacity: 0;
+            transform: scale(0.5);
+            transition: opacity 1s, transform 1s;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.1);
+            cursor: pointer;
+        }
+        .image.show {
+            opacity: 1;
+            width: 100vw;
+            height: 100vh;
+            transform: translate(-50%, -50%) scale(1);
+        }
+        .button {
+            background-color: #2563eb;
+            padding: 12px 24px;
+            border-radius: 24px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            border: none;
+            color: white;
+            animation: pulse 2s infinite;
+            transition: opacity 1s;
+        }
+        .icon {
+            font-size: 40px;
+            margin-top: 20px;
+            animation: rotate 3s infinite linear;
+            transition: opacity 1s;
+        }
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        .hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="title" id="title">Animaciones Interactivas</h1>
+        <img src="/ut04/EDS5-vDXkAA9MO0.jpg" alt="Imagen" class="image" id="image">
+        <br>
+        <button class="button" id="button" onclick="toggleImage()">¡Haz clic aquí!</button>
+        <div class="icon" id="icon">🚀</div>
+    </div>
+
+    <script>
+        function toggleImage() {
+            const image = document.getElementById('image');
+            const title = document.getElementById('title');
+            const button = document.getElementById('button');
+            const icon = document.getElementById('icon');
+
+            if (!image.classList.contains('show')) {
+                // Expandir imagen y ocultar elementos
+                image.classList.add('show');
+                title.classList.add('hidden');
+                button.classList.add('hidden');
+                icon.classList.add('hidden');
+            } else {
+                // Restaurar la vista original
+                image.classList.remove('show');
+                setTimeout(() => {
+                    title.classList.remove('hidden');
+                    button.classList.remove('hidden');
+                    icon.classList.remove('hidden');
+                }, 1000); // Retardo para hacer la transición más natural
+            }
+        }
+
+        document.getElementById('image').addEventListener('click', toggleImage);
+    </script>
+</body>
+</html>
