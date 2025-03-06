@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reproductor de Audio y Video</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+
+        .container {
+            margin-top: 50px;
+        }
+
+        video, audio {
+            max-width: 100%;
+            margin: 20px 0;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+        }
+
+        .controls {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 10px;
+        }
+
+        .controls button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .controls button:hover {
+            background-color: #45a049;
+        }
+
+        .progress-bar {
+            width: 80%;
+            height: 10px;
+            background-color: #ddd;
+            border-radius: 5px;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+
+        .progress-bar .progress {
+            height: 100%;
+            background-color: #4CAF50;
+            width: 0;
+            border-radius: 5px;
+        }
+
+        .volume-control {
+            width: 200px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Reproductor de Audio y Video</h1>
+
+        <!-- Reproductor de Video -->
+        <video id="video" width="640" controls>
+            <source src="/large.mp4" type="video/mp4">
+            Tu navegador no soporta este formato de video.
+        </video>
+
+        <!-- Reproductor de Audio -->
+        <audio id="audio" controls>
+            <source src="/video.mp4" type="audio/mp3">
+            Tu navegador no soporta este formato de audio.
+        </audio>
+
+        <!-- Controles para el Video -->
+        <div class="controls">
+            <button id="playPauseVideo">Reproducir/Pausar Video</button>
+            <button id="stopVideo">Detener Video</button>
+        </div>
+        
+        <!-- Controles para el Audio -->
+        <div class="controls">
+            <button id="playPauseAudio">Reproducir/Pausar Audio</button>
+            <button id="stopAudio">Detener Audio</button>
+        </div>
+
+        <!-- Barra de progreso -->
+        <div class="progress-bar" id="videoProgressBar">
+            <div class="progress" id="videoProgress"></div>
+        </div>
+        <div class="progress-bar" id="audioProgressBar">
+            <div class="progress" id="audioProgress"></div>
+        </div>
+
+        <!-- Control de volumen -->
+        <input type="range" class="volume-control" id="volumeControl" min="0" max="1" step="0.1" value="1">
+    </div>
+
+    <script>
+        const video = document.getElementById('video');
+        const audio = document.getElementById('audio');
+        const playPauseVideo = document.getElementById('playPauseVideo');
+        const stopVideo = document.getElementById('stopVideo');
+        const playPauseAudio = document.getElementById('playPauseAudio');
+        const stopAudio = document.getElementById('stopAudio');
+        const videoProgressBar = document.getElementById('videoProgressBar');
+        const audioProgressBar = document.getElementById('audioProgressBar');
+        const videoProgress = document.getElementById('videoProgress');
+        const audioProgress = document.getElementById('audioProgress');
+        const volumeControl = document.getElementById('volumeControl');
+
+        // Función para reproducir/pausar video
+        playPauseVideo.addEventListener('click', () => {
+            if (video.paused) {
+                video.play();
+                audio.pause(); // Pausar audio si se reproduce el video
+            } else {
+                video.pause();
+            }
+        });
+
+        // Función para detener video
+        stopVideo.addEventListener('click', () => {
+            video.pause();
+            video.currentTime = 0; // Volver al inicio
+        });
+
+        // Función para reproducir/pausar audio
+        playPauseAudio.addEventListener('click', () => {
+            if (audio.paused) {
+                audio.play();
+                video.pause(); // Pausar video si se reproduce el audio
+            } else {
+                audio.pause();
+            }
+        });
+
+        // Función para detener audio
+        stopAudio.addEventListener('click', () => {
+            audio.pause();
+            audio.currentTime = 0; // Volver al inicio
+        });
+
+        // Función para actualizar la barra de progreso del video
+        video.addEventListener('timeupdate', () => {
+            const progressPercentage = (video.currentTime / video.duration) * 100;
+            videoProgress.style.width = progressPercentage + '%';
+        });
+
+        // Función para actualizar la barra de progreso del audio
+        audio.addEventListener('timeupdate', () => {
+            const progressPercentage = (audio.currentTime / audio.duration) * 100;
+            audioProgress.style.width = progressPercentage + '%';
+        });
+
+        // Función para ajustar el volumen
+        volumeControl.addEventListener('input', () => {
+            video.volume = volumeControl.value;
+            audio.volume = volumeControl.value;
+        });
+
+        // Función para actualizar la barra de progreso al hacer clic sobre ella
+        videoProgressBar.addEventListener('click', (e) => {
+            const rect = videoProgressBar.getBoundingClientRect();
+            const offsetX = e.clientX - rect.left;
+            const duration = video.duration;
+            video.currentTime = (offsetX / videoProgressBar.offsetWidth) * duration;
+        });
+
+        audioProgressBar.addEventListener('click', (e) => {
+            const rect = audioProgressBar.getBoundingClientRect();
+            const offsetX = e.clientX - rect.left;
+            const duration = audio.duration;
+            audio.currentTime = (offsetX / audioProgressBar.offsetWidth) * duration;
+        });
+    </script>
+
+</body>
+</html>
