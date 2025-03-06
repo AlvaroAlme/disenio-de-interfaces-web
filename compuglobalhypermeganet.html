@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compu-Global-Hyper-Mega-Net</title>
+    <style>
+        body {
+            background-color: #fff;
+            color: #f00;
+            font-family: "Comic Sans MS", cursive, sans-serif;
+            text-align: center;
+            overflow: hidden;
+            position: relative;
+        }
+        h1 {
+            font-size: 50px;
+            text-shadow: 3px 3px 5px blue;
+            animation: blink 1s infinite alternate;
+            
+        }
+        @keyframes blink {
+            0% { opacity: 1; }
+            100% { opacity: 0; }
+        }
+        .gif-container {
+            position: absolute;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+        }
+        .gif {
+            position: absolute;
+            width: 100px;
+            height: auto;
+        }
+        .gif1, .gif10 { animation: move 3s infinite alternate ease-in-out; }
+        .gif2, .gif11 { animation: spin 4s infinite linear; }
+        .gif3, .gif13 { animation: pulse 2s infinite ease-in-out; }
+        .gif4, .gif15, .gif9 { animation: wobble 5s infinite ease-in-out; }
+        .gif5, .gif12 { animation: flip 3s infinite linear; }
+        .gif6, .gif15 { animation: expand 4s infinite alternate; }
+        .gif7, .gif19 { animation: shake 1s infinite linear; }
+        .gif8, .gif14 { animation: fade 3s infinite alternate; }
+
+        @keyframes move {
+            from { transform: translateY(0); }
+            to { transform: translateY(50px); }
+        }
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+        @keyframes wobble {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(-10deg); }
+            75% { transform: rotate(10deg); }
+        }
+        @keyframes flip {
+            from { transform: rotateY(0); }
+            to { transform: rotateY(360deg); }
+        }
+        @keyframes expand {
+            from { transform: scale(1); }
+            to { transform: scale(1.5); }
+        }
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            75% { transform: translateX(5px); }
+        }
+        @keyframes fade {
+            from { opacity: 1; }
+            to { opacity: 0.3; }
+        }
+        .jesus {
+            width: 200px;
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .button {
+            background-color: #0f0;
+            font-size: 20px;
+            padding: 15px;
+            border: 5px dashed red;
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: bounce 2s infinite ease-in-out;
+            z-index: 10;
+        }
+        @keyframes bounce {
+            0%, 100% { transform: translate(-50%, -50%) translateY(0); }
+            50% { transform: translate(-50%, -50%) translateY(-20px); }
+        }
+    </style>
+</head>
+<body>
+    <h1>Compu-Global-Hyper-Mega-Net</h1>
+    <button class="button" onclick="rickRoll()">No pulses este botón</button>
+    <div class="gif-container">
+        <img src="https://media.giphy.com/media/3oriO0OEd9QIDdllqo/giphy.gif" class="gif gif1" style="top: 10%; left: 20%;">
+        <img src="https://media.giphy.com/media/l3q2K5jinAlChoCLS/giphy.gif" class="gif gif2" style="top: 50%; left: 60%;">
+        <img src="https://media.giphy.com/media/xT9IgG50Fb7Mi0prBC/giphy.gif" class="gif gif3" style="top: 70%; left: 10%;">
+        <img src="https://media.giphy.com/media/l4pTfx2qLszoacZRS/giphy.gif" class="gif gif4" style="top: 30%; left: 40%;">
+        <img src="https://media.giphy.com/media/26AHONQ79FdWZhAI0/giphy.gif" class="gif gif5" style="top: 80%; left: 80%;">
+        <img src="https://media.giphy.com/media/5xtDarzqfbbxXp5G5So/giphy.gif" class="gif gif6" style="top: 15%; left: 70%;">
+        <img src="https://media.giphy.com/media/13CoXDiaCcCoyk/giphy.gif" class="gif gif7" style="top: 60%; left: 30%;">
+        <img src="https://media.giphy.com/media/l0HlNQ03J5JxX6lva/giphy.gif" class="gif gif8" style="top: 40%; left: 80%;">
+        <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExbDRlbXZxZ21nYm12cHJpcXpwdXY4eGRucjN1Z3djaGwwdWJrMTk1YiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/zCeNPm2IqGVGYoDfs0/giphy.gif" class="gif gif9" style="top: 5%; left: 42%;">
+        <img src="https://i.giphy.com/9W6zLbkiAwGQwTdpQW.webp" class="gif gif10" style="top: 67%; left: 93%;">
+        <img src="https://i.giphy.com/jZAwc1FZ4TednLkWwu.webp" class="gif gif11" style="top: 14%; left: 37%;">
+        <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExaXE1Z3U0NXRwdWJiM202emIxdGdqamMyNWRueWRsNXIybDdwb2o0bCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/5GoVLqeAOo6PK/giphy.gif" class="gif gif12" style="top: 19%; left: 40%;">
+        <img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExcWRpejZocTNydnViNmF2bm5sZDBna2N5eWNpOHQ2Y3FsamsyY3l5ZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/b4K0MfAZNLiQDqgYJN/giphy.gif" class="gif gif13" style="top: 25%; left: 43%;">
+        <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHZjcWx2eWs2NWNyYzIzc21qcHI2ajQ4emNhc3Vha2t2MDlhZ3FpMCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/S9y9BYhpZPzrgZ3kUI/giphy.gif" class="gif gif14" style="top: 68%; left: 65%;">
+        <img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExeXFhcWkxd2hyaXB2bXdxdTZtMzlzOGNlYjJudjVvNzF2NWJqemF0ZSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/KZ9I2l0rT8LFMtwTJN/giphy.gif" class="gif gif15" style="top: 72%; left: 87%;">
+        <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExa2pkZGUzNGd4aXo3bmdoN2htNmZodDEyOXNyZHhnN3c4Znk1aW84ZiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/toYIS95xETUPLmU9WP/giphy.gif" class="gif gif16" style="top: 29%; left: 21%;">
+        <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExMWZmZmozbzIydjNpMWs3MjZ3dDl4dnVpZXFxcHU1MHNub2phNzlueiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/QBd2kLB5qDmysEXre9/giphy.gif" class="gif gif17" style="top: 99%; left: 45%;">
+        <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExcjI3bDBlcW1qODBuMTVxanhseGI3MW0wYmlhOTUwZHkydTAzaWIzYyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/QhjR3MG9ZFfjB6BtIZ/giphy.gif" class="gif gif18" style="top: 56%; left: 12%;">
+        <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExZW0ybnNodm9tN2ZuZ2J1Y21kZnM4cmpmODZyMHVrZThlMXF4ZmxoZiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/xf20D8HzvTQzu/giphy.gif" class="gif gif19" style="top: 88%; left: 80%;">
+    </div>
+    <img src="https://media.giphy.com/media/3ohhwhh4UzSxcWh9KM/giphy.gif" class="jesus">
+    <audio id="rickroll" src="https://www.myinstants.com/media/sounds/rickroll.mp3" loop></audio>
+    <script>
+        function rickRoll() {
+            document.getElementById('rickroll').play();
+            alert('¡Te lo advertí!');
+        }
+    </script>
+</body>
+</html>
