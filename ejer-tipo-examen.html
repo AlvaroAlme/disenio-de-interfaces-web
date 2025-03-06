@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Control de Video</title>
+        <style>
+            button {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                background-color: #969b96;
+                border: none;
+                border-radius: 15px;
+                color: white;
+                padding: 15px 32px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+                margin: 4px 2px;
+                cursor: pointer;
+            }
+
+            button:hover {
+                background-color: #000000;
+            }
+
+            .control-container {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: row;
+            }
+
+            .video-container {
+                width: 800px;
+                height: 450px;
+                margin: 0 auto;
+            }
+
+            .video-container video {
+                width: 100%;
+                height: 100%;
+            }
+
+
+        </style>
+    </head>
+    <body>
+        <div class="video-container">
+        <video id="video" width="600" poster="/ut04/actividad_diw43/EDS5-vDXkAA9MO0.jpg" controls loop>
+            <source src="/ut04/video.mp4" type="video/mp4"  />
+            Tu navegador no soporta el elemento video
+        </video>
+    </div>
+        <br>
+    <div class="control-container">
+        <button onclick="playPause()">Play/Pause</button>
+        <button onclick="retroceder()">Retroceder 5s</button>
+        <button onclick="avanzar()">Avanzar 5s</button>
+        <button onclick="stop()">Stop</button>
+        <button onclick="volumenUp()">Volumen +</button>
+        <button onclick="volumenDown()">Volumen -</button>
+        <button onclick="mute()">Mute</button>
+        <button onclick="pantallaCompleta()">Pantalla Completa</button>
+    </div>        
+
+        <script>
+            const video = document.getElementById("video");
+
+            function playPause() {
+                if (video.paused) {
+                    video.play();
+                } else {
+                    video.pause();
+                }
+            }
+
+            function retroceder() {
+                video.currentTime -= 5;
+            }
+
+            function avanzar() {
+                video.currentTime += 5;
+            }
+
+            function stop() {
+                video.pause();
+                video.currentTime = 0;
+            }
+
+            function volumenUp() {
+                if (video.volume < 1) {
+                    video.volume += 0.1;
+                }
+            }
+
+            function volumenDown() {
+                if (video.volume > 0) {
+                    video.volume -= 0.1;
+                }
+            }
+
+            function mute() {
+                video.muted = !video.muted;
+            }
+
+            function pantallaCompleta() {
+                if (video.requestFullscreen) {
+                    video.requestFullscreen();
+                } else if (video.webkitRequestFullscreen) {
+                    video.webkitRequestFullscreen();
+                } else if (video.mozRequestFullScreen) {
+                    video.mozRequestFullScreen();
+                } else if (video.msRequestFullscreen) {
+                    video.msRequestFullscreen();
+                }
+            }
+        </script>
+
+    </body>
+</html>
